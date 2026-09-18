@@ -1,5 +1,17 @@
 const Task = (props) => {
 
+    const getPriorityColor = () => {
+    if (props.priority === "High") {
+        return "red";
+    }
+
+    if (props.priority === "Medium") {
+        return "orange";
+    }
+
+    return "green";
+    }
+
     return (
         <div
             className="card"
@@ -7,7 +19,12 @@ const Task = (props) => {
         >
             <p className="title">{props.title}</p>
             <p>Due: {props.deadline}</p>
-            <p className="priority">Priority: {props.priority}</p>
+            <p
+                className="priority"
+                style={{color: getPriorityColor()}}
+                >
+                Priority: {props.priority}
+            </p>
             <p className="description">{props.description}</p>
 
             <button
