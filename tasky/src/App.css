@@ -4,7 +4,7 @@ body {
   font-weight: 400;
 }
 
-h1 {
+/*h1 {
   text-align: center;
   background-color: grey;
   color: white;
@@ -20,11 +20,11 @@ div {
 
 .container {
   text-align: center;
-}
+}*
 
 .card {
   display: inline-block;
-  vertical-align: top;
+  vertical-align: top
   font-family: system-ui;
   background: #5bb4c4;
   color: white;
@@ -108,4 +108,4 @@ select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-}
+}*/
