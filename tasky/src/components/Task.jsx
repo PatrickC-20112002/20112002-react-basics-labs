@@ -6,13 +6,16 @@ import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import CheckIcon from '@mui/icons-material/Check';
+import DeleteIcon from '@mui/icons-material/Delete';
+import Chip from '@mui/material/Chip';
 
 const Task = (props) => {
 
   return (
     <Grid
       key={props.id}
-      size={{ xs: 12, md: 4 }}
+      size={{ xs: 12, sm: 6, md: 4 }}
     >
       <Card
         sx={{
@@ -49,17 +52,24 @@ const Task = (props) => {
             </Typography>
           </Box>
 
-          <Typography
-            component="p"
-            variant="subtitle2"
-            align="center"
+          <Box
             sx={{
-              fontWeight: 'bold',
-              mb: 2
+                display: 'flex',
+                justifyContent: 'center',
+                mb: 2
             }}
-          >
-            Priority: {props.priority}
-          </Typography>
+            >
+            <Chip
+                label={`Priority: ${props.priority}`}
+                color={
+                props.priority === 'High'
+                    ? 'error'
+                    : props.priority === 'Medium'
+                    ? 'warning'
+                    : 'success'
+                }
+            />
+          </Box>
 
           <Typography
             component="p"
@@ -82,6 +92,7 @@ const Task = (props) => {
             size="small"
             color="success"
             onClick={props.markDone}
+            startIcon={<CheckIcon />}
           >
             Done
           </Button>
@@ -91,6 +102,7 @@ const Task = (props) => {
             size="small"
             color="error"
             onClick={props.deleteTask}
+            startIcon={<DeleteIcon />}
           >
             Delete
           </Button>
